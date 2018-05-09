@@ -1,5 +1,9 @@
+
+
 var claims = [
-    {
+    {   
+        czone:1,
+        creator:1,
         title : 'Estoy harta del vecino',
         receiver : 'Asesino a sueldo',
         resume : 'Mi vecino pasa por delante de mi casa todos los dias y me pisa las flores, puedo matarlo?',
@@ -46,12 +50,15 @@ function getClaim(req, res) {
 }
 
 
-function createClaim(req, res ){
-    console.log('creating claim : ');
-    console.log(req.body);
+function createClaim(req, res, next){
+
+
+    // parsing multipart : 
+    console.log(req)   
+    console.log(req.files)    
     const newClaim = req.body;
     claims.push(newClaim);
     console.log('Created claim : ');
     console.log(newClaim);
-    res.json(claims)
+    res.json(newClaim)
 }
